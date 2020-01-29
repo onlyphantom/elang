@@ -2,11 +2,10 @@ import os
 from gensim.models import Word2Vec
 from simple_preprocess.bcapara import single_para, multi_senc
 
-SIZE= 10
-WINDOW = 3
+SIZE= 100
+WINDOW = 5
 ITER = 10
 WORKERS = 4
-LR = 0.01
 
 # build vocabulary and train model on one paragraph
 # corpus = single_para()
@@ -15,11 +14,11 @@ model = Word2Vec(
     corpus, 
     size=SIZE, 
     window=WINDOW, 
-    min_count=1,
+    min_count=5,
     workers=WORKERS,
     iter=ITER)
 
-# print(model.wv.most_similar("kartu"))
+print(model.wv.most_similar("kartu"))
 # [('kredit', 0.5386360287666321), 
 # ('berbagai', 0.5347478985786438), 
 # ('sejalan', 0.502410888671875), 
