@@ -25,7 +25,7 @@ def create_word2vec(save=True):
         corpus, 
         size=SIZE, 
         window=WINDOW, 
-        min_count=5,
+        min_count=1,
         workers=WORKERS,
         iter=ITER)
     if save:
@@ -49,6 +49,7 @@ def create_word2vec(save=True):
 if __name__ == '__main__':
     model = create_word2vec()
 
-# model.corpus_total_words -> 139
+# len(model.wv.vocab) -> 1158
+# model.corpus_total_words -> 3320
 # model.wv['bca'] # ndarray of length 10
 # model.wv.vocab['atm'].count -> 5
