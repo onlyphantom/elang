@@ -11,4 +11,3 @@ def remove_stopwords_id(sentence):
         sentence = re.sub(r'\b'+w+r'\b', '', sentence.lower())
         sentence = re.sub(r'\s+', ' ', sentence).strip()
     return sentence
-
