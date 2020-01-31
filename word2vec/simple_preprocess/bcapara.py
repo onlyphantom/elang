@@ -19,5 +19,13 @@ def multi_senc():
     print(len(uniqset), "Unique Terms")
     return(corpus)
 
+def multi_senc_demo():
+    file_dir = os.path.dirname(os.path.realpath(__file__)) + '/demosentences.txt'
+    corpus = list(map(simple_preprocess, open(file_dir).read().splitlines()))
+    print(corpus[-6:], "\nSentences: -->", len(corpus))
+    uniqset = set(word for l in corpus for word in l) 
+    print(len(uniqset), "Unique Terms")
+    return(corpus)
+
 if __name__ == '__main__':
     corpus = multi_senc()
