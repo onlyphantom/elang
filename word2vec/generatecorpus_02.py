@@ -12,7 +12,7 @@ ITER = 10
 WORKERS = 4
 
 def create_corpus():
-    sentences = list(map(remove_stopwords_id, open(FILE_DIR).read().splitlines()))
+    sentences = list(map(remove_stopwords_id, open(FILE_DIR, encoding='utf-8').read().splitlines()))
     corpus = list(map(simple_preprocess, sentences))
     print(corpus[:2], "\nSentences: -->", len(corpus))
     uniqset = set(word for l in corpus for word in l) 
