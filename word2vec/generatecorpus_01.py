@@ -37,7 +37,7 @@ def create_word2vec(save=False):
         workers=WORKERS,
         iter=ITER,
         seed=3,
-        hashfxn=hash,
+        hashfxn=hash
     )
     if save:
         model.save(MODEL_DIR)
@@ -47,7 +47,7 @@ def create_word2vec(save=False):
 
 
 if __name__ == "__main__":
-    model = create_word2vec(save=False)
+    model = create_word2vec(save=True)
 
 
 # Try: kartu, rekening
