@@ -3,10 +3,10 @@ from gensim.utils import simple_preprocess
 from gensim.models import Word2Vec
 from utils import remove_stopwords_id
 
+SIZE = 500
 REAL_PATH = os.path.dirname(os.path.realpath(__file__))
 FILE_DIR = REAL_PATH + "/simple_preprocess/demosentences.txt"
-MODEL_DIR = REAL_PATH + "/model/demo.model"
-SIZE = 2
+MODEL_DIR = REAL_PATH + f"/model/demo{SIZE}d.model"
 WINDOW = 2
 ITER = 1000
 WORKERS = 4
@@ -37,7 +37,7 @@ def create_word2vec(save=False):
         workers=WORKERS,
         iter=ITER,
         seed=3,
-        hashfxn=hash
+        hashfxn=hash,
     )
     if save:
         model.save(MODEL_DIR)
