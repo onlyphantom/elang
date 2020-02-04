@@ -11,16 +11,6 @@ def hash(astring):
     return ord(astring[0])
 
 
-MODEL_PATH = (
-    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
-    + "/word2vec/model/demo2d.model"
-    # + "/word2vec/model/demo500d.model"
-)
-
-model = Word2Vec.load(MODEL_PATH)
-print("Loaded from Path:", MODEL_PATH, "\n", model)
-
-
 def plot2d_demo(model, words=None):
     assert (
         model.vector_size >= 2
@@ -46,5 +36,14 @@ def plot2d_demo(model, words=None):
 
 
 if __name__ == "__main__":
+    MODEL_PATH = (
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+        + "/word2vec/model/demo2d.model"
+        # + "/word2vec/model/demo500d.model"
+    )
+
+    model = Word2Vec.load(MODEL_PATH)
+    print("Loaded from Path:", MODEL_PATH, "\n", model)
+
     # plot2d_demo(model, words=["bca", "mandiri", "uob", "algoritma", "airbnb"])
     plot2d_demo(model)

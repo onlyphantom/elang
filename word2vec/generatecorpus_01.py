@@ -3,7 +3,7 @@ from gensim.utils import simple_preprocess
 from gensim.models import Word2Vec
 from utils import remove_stopwords_id
 
-SIZE = 500
+SIZE = 2
 REAL_PATH = os.path.dirname(os.path.realpath(__file__))
 FILE_DIR = REAL_PATH + "/simple_preprocess/demosentences.txt"
 MODEL_DIR = REAL_PATH + f"/model/demo{SIZE}d.model"
