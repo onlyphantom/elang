@@ -1,0 +1,3 @@
+gensim
+scikit-learn
+matplotlib
