@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="elang",
-    version="0.0.3",
+    version="0.0.4",
     author="Samuel Chan, Tomy Tjandra",
     author_email="samuel@algorit.ma",
     description="Education toolkit for Bahasa Indonesia NLP",

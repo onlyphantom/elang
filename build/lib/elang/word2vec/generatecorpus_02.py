@@ -22,7 +22,7 @@ def create_corpus():
     return corpus
 
 
-def create_word2vec(save=True):
+def create_word2vec(save=False):
     corpus = create_corpus()
     model = Word2Vec(
         corpus,
@@ -54,7 +54,7 @@ def create_word2vec(save=True):
 if __name__ == "__main__":
     model = create_word2vec()
 
-print(model.wv.most_similar("indonesia"))
+print(model.wv.most_similar("bca"))
 
 # len(model.wv.vocab) -> 1158
 # model.corpus_total_words -> 3320

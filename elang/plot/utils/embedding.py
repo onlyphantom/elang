@@ -6,10 +6,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def plot2d(model, words=None, method="PCA"):
+def plot2d(model, words=None, method="PCA", targets=[]):
     assert (
         model.vector_size >= 2
     ), "This function expects a model of size 2 (2-dimension word vectors) or higher."
+
+    assert isinstance(targets, list), "The targets parameter expect a python list"
 
     if words is None:
         words = [words for words in model.wv.vocab]
@@ -39,7 +41,7 @@ def plot2d(model, words=None, method="PCA"):
         )
 
         for word, (x, y) in zip(words, word_vec):
-            if word in ["bca", "mandiri", "uob"]:
+            if word in [elem.lower() for elem in targets if targets]:
                 plt.text(x - 0.02, y + 0.02, word, fontsize=5, weight="bold")
             else:
                 plt.text(x - 0.02, y + 0.02, word, fontsize=5, alpha=0.5)

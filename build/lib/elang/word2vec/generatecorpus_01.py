@@ -47,7 +47,7 @@ def create_word2vec(save=False):
 
 
 if __name__ == "__main__":
-    model = create_word2vec(save=True)
+    model = create_word2vec(save=False)
 
 
 # Try: kartu, rekening
