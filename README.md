@@ -1,4 +1,5 @@
 # Education Toolkit for Bahasa Indonesia NLP
+[![PyPI version](https://img.shields.io/pypi/v/elang?color=green)](https://badge.fury.io/py/elang) [![PyPI license](https://img.shields.io/pypi/l/Elang?color=red)](https://pypi.python.org/pypi/elang/) [![Activity](https://img.shields.io/github/commit-activity/m/onlyphantom/elangdev)](https://github.com/onlyphantom/elangdev) [![maintained](https://img.shields.io/maintenance/yes/2020)](https://github.com/onlyphantom/elang/graphs/commit-activity) [![PyPI format](https://img.shields.io/pypi/format/elang)](https://pypi.org/project/elang/https://pypi.org/project/elang/) [![pypi downloads](https://img.shields.io/pypi/dm/elang)](https://pypi.org/project/elang/https://pypi.org/project/elang/)
 
 > This repository is the PyPI version intended for production use. It is maintained for accuracy purposes. For example code, experimental / in-development features and tutorial materials, use [Elangdev](https://github.com/onlyphantom/elangdev) instead. 
 
