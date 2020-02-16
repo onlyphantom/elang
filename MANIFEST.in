@@ -1,0 +1,2 @@
+include elang/word2vec/utils/negative/*
+include elang/word2vec/model/*.model

@@ -16,7 +16,7 @@ def plot2d(model, words=None, method="PCA", targets=[]):
     :param model: An instance of Word2Vec
     :type model: Word2Vec
     :param words: List of words to render in plot -- when None all words in the `model` are plotted, defaults to None
-    :type words: list or `None`, optional
+    :type words: list or None, optional
     :param method: Method for dimensionality reduction, defaults to "PCA"
     :type method: str, optional
     :param targets: List of words to be emphasized using a bold font in the plot, defaults to []
