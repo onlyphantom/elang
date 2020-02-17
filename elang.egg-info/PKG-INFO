@@ -1,14 +1,15 @@
 Metadata-Version: 2.1
 Name: elang
-Version: 0.0.4
+Version: 0.0.5
 Summary: Education toolkit for Bahasa Indonesia NLP
 Home-page: https://github.com/onlyphantom/elang
 Author: Samuel Chan, Tomy Tjandra
 Author-email: samuel@algorit.ma
 License: UNKNOWN
 Description: # Education Toolkit for Bahasa Indonesia NLP
+        [![PyPI version](https://img.shields.io/pypi/v/elang?color=green)](https://badge.fury.io/py/elang) [![PyPI license](https://img.shields.io/pypi/l/Elang?color=red)](https://pypi.python.org/pypi/elang/) [![Activity](https://img.shields.io/github/commit-activity/m/onlyphantom/elang)](https://github.com/onlyphantom/elang) [![maintained](https://img.shields.io/maintenance/yes/2020)](https://github.com/onlyphantom/elang/graphs/commit-activity) [![PyPI format](https://img.shields.io/pypi/format/elang)](https://pypi.org/project/elang/https://pypi.org/project/elang/) [![pypi downloads](https://img.shields.io/pypi/dm/elang)](https://pypi.org/project/elang/https://pypi.org/project/elang/)
         
-        > This repository is the trimmed down version of [Elangdev](https://github.com/onlyphantom/elangdev). It is maintained for accuracy purposes. For example code, experimental / in-development features and tutorial materials, use [Elangdev](https://github.com/onlyphantom/elangdev) instead. 
+        > This repository is the PyPI version intended for production use. It is maintained for accuracy purposes. For example code, experimental / in-development features and tutorial materials, use [Elangdev](https://github.com/onlyphantom/elangdev) instead. 
         
         Elang is an acronym that combines the phrases **Education (E)** and **Language Understanding (Lang)**. It is an education-centric toolkit to demonstrate the ideas behind many Natural Language Processing strategies commercially used today. 
         
@@ -36,7 +37,7 @@ Description: # Education Toolkit for Bahasa Indonesia NLP
         # output:
         ```
         
-        <img width="50%" src="assets/embedding.png">
+        <img width="50%" src="https://github.com/onlyphantom/elangdev/raw/master/assets/embedding.png">
         
         It even looks like a soaring eagle with its outstretched wings!
 Keywords: nlp bahasa indonesia indonesian

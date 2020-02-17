@@ -1,7 +1,7 @@
 import os, multiprocessing
 from gensim.utils import simple_preprocess
 from gensim.models import Word2Vec
-from utils import remove_stopwords_id
+from .utils import remove_stopwords_id
 
 REAL_PATH = os.path.dirname(os.path.realpath(__file__))
 FILE_DIR = REAL_PATH + "/simple_preprocess/sentences.txt"

@@ -3,14 +3,13 @@ import re
 
 realpath = os.path.dirname(os.path.realpath(__file__))
 
-# helper function
-def open_file(filename):
+def _open_file(filename):
     filepath = realpath + "/negative/" + filename
     wordlist = list(open(filepath).read().splitlines())
     return wordlist
 
 
-def remove_words(sentence, words2remove):
+def _remove_words(sentence, words2remove):
     for word in words2remove:
         sentence = re.sub(r"\b" + word + r"\b", "", sentence.lower())
         sentence = re.sub(r"\s+", " ", sentence).strip()
@@ -19,18 +18,18 @@ def remove_words(sentence, words2remove):
 
 # main cleansing function
 def remove_stopwords_id(sentence):
-    stopwords = open_file("stopwords-id.txt")
-    sentence = remove_words(sentence, stopwords)
+    stopwords = _open_file("stopwords-id.txt")
+    sentence = _remove_words(sentence, stopwords)
     return sentence
 
 
 def remove_region_id(sentence):
-    regions = open_file("indonesian-region.txt")
-    sentence = remove_words(sentence, regions)
+    regions = _open_file("indonesian-region.txt")
+    sentence = _remove_words(sentence, regions)
     return sentence
 
 
 def remove_vulgarity_id(sentence):
-    swears = open_file("swear-words.txt")
-    sentence = remove_words(sentence, swears)
+    swears = _open_file("swear-words.txt")
+    sentence = _remove_words(sentence, swears)
     return sentence
