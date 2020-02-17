@@ -7,3 +7,4 @@ class TestRemove(TestCase):
         res = remove_region_id(sen)
         self.assertLess(len(res.split(" ")), len(sen.split(" ")))
 
+        

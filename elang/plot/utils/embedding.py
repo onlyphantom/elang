@@ -21,6 +21,7 @@ def plot2d(model, words=None, method="PCA", targets=[]):
     :type method: str, optional
     :param targets: List of words to be emphasized using a bold font in the plot, defaults to []
     :type targets: list, optional
+    :return: A matplotlib figure
     :raises AssertionError: Ensure `model` is size 2 (2-dimension word vectors) (2-dimension word vectors) or higher
     """
     assert (

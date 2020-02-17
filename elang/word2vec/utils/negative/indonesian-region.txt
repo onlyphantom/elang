@@ -6,7 +6,7 @@ balikpapan
 banda aceh
 bandar lampung
 bandung
-bangka belitung
+bangka
 banjar
 banjarbaru
 banjarmasin
@@ -14,6 +14,7 @@ banten
 batam
 batu
 bau-bau
+belitung
 bekasi
 bengkulu
 bima
