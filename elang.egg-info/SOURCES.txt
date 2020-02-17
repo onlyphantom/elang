@@ -21,3 +21,5 @@ elang/word2vec/utils/cleansing.py
 elang/word2vec/utils/negative/indonesian-region.txt
 elang/word2vec/utils/negative/stopwords-id.txt
 elang/word2vec/utils/negative/swear-words.txt
+tests/__init__.py
+tests/test_cleansing.py

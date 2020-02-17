@@ -40,7 +40,7 @@ Description: # Education Toolkit for Bahasa Indonesia NLP
         <img width="50%" src="https://github.com/onlyphantom/elangdev/raw/master/assets/embedding.png">
         
         It even looks like a soaring eagle with its outstretched wings!
-Keywords: nlp bahasa indonesia indonesian
+Keywords: nlp bahasa indonesia indonesian natural language corpus word2vec gensim
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication

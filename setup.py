@@ -21,5 +21,7 @@ setuptools.setup(
     ],
     python_requires=">=3.6",
     install_requires=["gensim", "scikit-learn", "matplotlib"],
-    keywords="nlp bahasa indonesia indonesian",
+    keywords="nlp bahasa indonesia indonesian natural language corpus word2vec gensim",
+    test_suite='nose.collector',
+    tests_require=['nose']
 )
