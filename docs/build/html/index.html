@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Elang Documentation &amp; Quick Start &#8212; elang 0.0.5 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="elang-documentation-quick-start">
+<h1>Elang Documentation &amp; Quick Start<a class="headerlink" href="#elang-documentation-quick-start" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-5-min-guide-to-word-embeddings">
+<h2>The 5-min Guide to Word Embeddings<a class="headerlink" href="#the-5-min-guide-to-word-embeddings" title="Permalink to this headline">¶</a></h2>
+<p>If you have a <cite>Word2Vec</cite> model and would like to generate a 2-dimensional word embedding visualization, this can be done through the <cite>plot2d</cite> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">elang.plot.utils</span> <span class="kn">import</span> <span class="n">plot2d</span>
+<span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;path.to.model&quot;</span><span class="p">)</span>
+<span class="hll"><span class="n">plot2d</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>The default method for dimensionality reduction (to obtain exactly two dimensions) is Principal Component Analysis (PCA). This, and the other parameters can be specified as optional parameters.</p>
+<p>For example, you may not wish to plot all the words in your Word2Vec model, and only wish to see a list of words. This can be done using the <cite>words</cite> parameter;
+You may optionally wish to bring attention to a small subset of words within the plot, and this can be done using the <cite>targets</cite> parameter.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">elang.plot.utils</span> <span class="kn">import</span> <span class="n">plot2d</span>
+<span class="n">list_of_words_to_appear</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bca&quot;</span><span class="p">,</span> <span class="s2">&quot;mandiri&quot;</span><span class="p">,</span> <span class="s2">&quot;uob&quot;</span><span class="p">,</span> <span class="s2">&quot;algoritma&quot;</span><span class="p">,</span> <span class="s2">&quot;airbnb&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="s2">&quot;emiten&quot;</span><span class="p">]</span>
+<span class="n">plot2d</span><span class="p">(</span><span class="n">model</span><span class="p">,</span>
+   <span class="c1"># method for dimensionality reduction</span>
+   <span class="n">method</span><span class="o">=</span><span class="s2">&quot;TSNE&quot;</span><span class="p">,</span>
+   <span class="c1"># only show following words in the final plot</span>
+   <span class="n">words</span><span class="o">=</span><span class="n">list_of_words_to_appear</span><span class="p">,</span>
+   <span class="c1"># target words are given special emphasis in the final plot</span>
+   <span class="n">targets</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;uob&#39;</span><span class="p">,</span> <span class="s1">&#39;mandiri&#39;</span><span class="p">,</span><span class="s1">&#39;bca&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/pca.png"><img alt="Word Embeddings using Elang" src="_images/pca.png" style="width: 300px;" /></a>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="the-5-min-guide-to-nlp-preprocessing">
+<h2>The 5-min Guide to NLP Preprocessing<a class="headerlink" href="#the-5-min-guide-to-nlp-preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>Elang comes with a number of pre-processing functions to make cleaning data in Bahasa Indonesia a little easier.</p>
+<p>The <cite>remove_*</cite> group of functions parses a string and eliminate any occurrences of words in a pre-determined list (negative list).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">elang.word2vec.utils</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Oh ya, saya sudah pernah ke Hutan Ingatan Pasar Seni, Bandung, Senin 25 Maret kemarin. Tempat ini bagus anjir.&quot;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">remove_stopwords_id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># x: &quot;Saya pernah ke Hutan Ingatan Pasar Seni, Bandung, Senin 25 Maret kemarin. Tempat bagus anjir.&quot;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">remove_region_id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># x: &quot;Saya pernah ke Hutan Ingatan Pasar Seni, Senin 25 Maret kemarin. Tempat bagus anjir.&quot;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">remove_calendar_id</span><span class="p">(</span><span class="s2">&quot;Hutan Ingatan Pasar Seni, Bandung, Senin 25 Maret&quot;</span><span class="p">)</span>
+<span class="c1"># x: &quot;Saya pernah ke Hutan Ingatan Pasar Seni kemarin. Tempat bagus anjir.&quot;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">remove_vulgarity_id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># x: &quot;Saya pernah ke Hutan Ingatan Pasar Seni kemarin. Tempat bagus.&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">elang</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Samuel Chan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
