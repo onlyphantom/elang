@@ -19,7 +19,7 @@
 
 project = 'elang'
 copyright = '2020, Samuel Chan'
-author = 'Samuel Chan'
+author = 'Samuel Chan, Tomy Tjandra'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.5'
