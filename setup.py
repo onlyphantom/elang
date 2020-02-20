@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="elang",
-    version="0.0.5",
+    version="0.0.6",
     author="Samuel Chan, Tomy Tjandra",
     author_email="samuel@algorit.ma",
     description="Education toolkit for Bahasa Indonesia NLP",
@@ -22,6 +22,6 @@ setuptools.setup(
     python_requires=">=3.6",
     install_requires=["gensim", "scikit-learn", "matplotlib"],
     keywords="nlp bahasa indonesia indonesian natural language corpus word2vec gensim",
-    test_suite='nose.collector',
-    tests_require=['nose']
+    test_suite="nose.collector",
+    tests_require=["nose"],
 )

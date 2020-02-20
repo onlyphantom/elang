@@ -18,6 +18,7 @@ elang/word2vec/simple_preprocess/bcapara.py
 elang/word2vec/simple_preprocess/singlepara.py
 elang/word2vec/utils/__init__.py
 elang/word2vec/utils/cleansing.py
+elang/word2vec/utils/negative/calendar-words.txt
 elang/word2vec/utils/negative/indonesian-region.txt
 elang/word2vec/utils/negative/stopwords-id.txt
 elang/word2vec/utils/negative/swear-words.txt
