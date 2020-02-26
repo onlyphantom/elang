@@ -32,18 +32,21 @@
             
   <div class="section" id="elang-documentation-quick-start">
 <h1>Elang Documentation &amp; Quick Start<a class="headerlink" href="#elang-documentation-quick-start" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
 <div class="section" id="the-5-min-guide-to-word-embeddings">
 <h2>The 5-min Guide to Word Embeddings<a class="headerlink" href="#the-5-min-guide-to-word-embeddings" title="Permalink to this headline">¶</a></h2>
-<p>If you have a <cite>Word2Vec</cite> model and would like to generate a 2-dimensional word embedding visualization, this can be done through the <cite>plot2d</cite> function:</p>
+<p>If you have a <code class="docutils literal notranslate"><span class="pre">Word2Vec</span></code> model and would like to generate a 2-dimensional word embedding visualization, this can be done through the <code class="docutils literal notranslate"><span class="pre">plot2d</span></code> function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">elang.plot.utils</span> <span class="kn">import</span> <span class="n">plot2d</span>
 <span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;path.to.model&quot;</span><span class="p">)</span>
 <span class="hll"><span class="n">plot2d</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<p>The default method for dimensionality reduction (to obtain exactly two dimensions) is Principal Component Analysis (PCA). This, and the other parameters can be specified as optional parameters.</p>
-<p>For example, you may not wish to plot all the words in your Word2Vec model, and only wish to see a list of words. This can be done using the <cite>words</cite> parameter;
-You may optionally wish to bring attention to a small subset of words within the plot, and this can be done using the <cite>targets</cite> parameter.</p>
+<p>The default method for dimensionality reduction (to obtain exactly two dimensions) is T-SNE. This, and the other parameters can be specified as optional parameters.</p>
+<p>For example, you may not wish to plot all the words in your Word2Vec model, and only wish to see a list of words. This can be done using the <code class="docutils literal notranslate"><span class="pre">words</span></code> parameter;
+You may optionally wish to bring attention to a small subset of words within the plot, and this can be done using the <code class="docutils literal notranslate"><span class="pre">targets</span></code> parameter.</p>
+<p>We will also specify methods to be “PCA” instead of “T-SNE” (default), resulting in the following function call:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">elang.plot.utils</span> <span class="kn">import</span> <span class="n">plot2d</span>
 <span class="n">list_of_words_to_appear</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bca&quot;</span><span class="p">,</span> <span class="s2">&quot;mandiri&quot;</span><span class="p">,</span> <span class="s2">&quot;uob&quot;</span><span class="p">,</span> <span class="s2">&quot;algoritma&quot;</span><span class="p">,</span> <span class="s2">&quot;airbnb&quot;</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="s2">&quot;emiten&quot;</span><span class="p">]</span>
 <span class="n">plot2d</span><span class="p">(</span><span class="n">model</span><span class="p">,</span>
@@ -57,13 +60,27 @@ You may optionally wish to bring attention to a small subset of words within the
 </pre></div>
 </div>
 <a class="reference internal image-reference" href="_images/pca.png"><img alt="Word Embeddings using Elang" src="_images/pca.png" style="width: 300px;" /></a>
-<div class="toctree-wrapper compound">
+<p>elang also includes visualization methods to help you visualize a user-defined <cite>k</cite> number of neighbors to each words.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">draggable</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> (default <code class="docutils literal notranslate"><span class="pre">False</span></code>), you will obtain a legend that you can move around in the resulting plot.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">elang.plot.utils</span> <span class="kn">import</span> <span class="n">plotNeighbours</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;path.to.model&quot;</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bca&#39;</span><span class="p">,</span> <span class="s1">&#39;hitam&#39;</span><span class="p">,</span> <span class="s1">&#39;hutan&#39;</span><span class="p">,</span> <span class="s1">&#39;pisang&#39;</span><span class="p">,</span> <span class="s1">&#39;mobil&#39;</span><span class="p">,</span> <span class="s2">&quot;cinta&quot;</span><span class="p">,</span> <span class="s2">&quot;pejabat&quot;</span><span class="p">,</span> <span class="s2">&quot;android&quot;</span><span class="p">,</span> <span class="s2">&quot;kompas&quot;</span><span class="p">]</span>
+<span class="n">plotNeighbours</span><span class="p">(</span><span class="n">model</span><span class="p">,</span>
+   <span class="n">words</span><span class="p">,</span>
+   <span class="n">method</span><span class="o">=</span><span class="s2">&quot;TSNE&quot;</span><span class="p">,</span>
+   <span class="n">k</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+   <span class="n">draggable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
 </div>
+<p>The code plots the 15 nearest neighbors for each word in the supplied words argument. It then renders the plot with a draggable legend.
+Just like the case of <cite>plot2d</cite>, it uses “T-SNE” as the default method for dimensionality reduction. This can be overriden via the <code class="docutils literal notranslate"><span class="pre">method</span></code> parameter.</p>
+<a class="reference internal image-reference" href="_images/neighbors.png"><img alt="Visualizing Word Neighbours using Elang" src="_images/neighbors.png" style="width: 300px;" /></a>
 </div>
 <div class="section" id="the-5-min-guide-to-nlp-preprocessing">
 <h2>The 5-min Guide to NLP Preprocessing<a class="headerlink" href="#the-5-min-guide-to-nlp-preprocessing" title="Permalink to this headline">¶</a></h2>
 <p>Elang comes with a number of pre-processing functions to make cleaning data in Bahasa Indonesia a little easier.</p>
-<p>The <cite>remove_*</cite> group of functions parses a string and eliminate any occurrences of words in a pre-determined list (negative list).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">remove_*</span></code> group of functions parses a string and eliminate any occurrences of words in a pre-determined list (negative list).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">elang.word2vec.utils</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Oh ya, saya sudah pernah ke Hutan Ingatan Pasar Seni, Bandung, Senin 25 Maret kemarin. Tempat ini bagus anjir.&quot;</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">remove_stopwords_id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -78,6 +95,18 @@ You may optionally wish to bring attention to a small subset of words within the
 <span class="n">x</span> <span class="o">=</span> <span class="n">remove_vulgarity_id</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="c1"># x: &quot;Saya pernah ke Hutan Ingatan Pasar Seni kemarin. Tempat bagus.&quot;</span>
 </pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="faqs">
+<h2>FAQs<a class="headerlink" href="#faqs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="can-i-use-the-library-to-visualize-my-word-embeddings-trained-using-english-corpus-instead-of-indonesian">
+<h3>1. Can I use the library to visualize my word embeddings trained using English corpus (instead of Indonesian)?<a class="headerlink" href="#can-i-use-the-library-to-visualize-my-word-embeddings-trained-using-english-corpus-instead-of-indonesian" title="Permalink to this headline">¶</a></h3>
+<p><strong>Answer</strong>:</p>
+<p>Yes. There are no inherent assumptions about the model. <code class="docutils literal notranslate"><span class="pre">plot2d</span></code> and <code class="docutils literal notranslate"><span class="pre">plotNeighbors</span></code> will take a Word2Vec model and a supplied list of words and generate your plot.</p>
+<p>In practice, your model may be trained from a mixed set of languages and they won’t matter as long as the underlying representation for each word vector remain consistent.</p>
 </div>
 </div>
 </div>

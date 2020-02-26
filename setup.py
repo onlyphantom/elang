@@ -5,10 +5,10 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="elang",
-    version="0.0.6",
+    version="0.0.8",
     author="Samuel Chan, Tomy Tjandra",
     author_email="samuel@algorit.ma",
-    description="Education toolkit for Bahasa Indonesia NLP",
+    description="Word Embedding(E) utilities: Indonesian Language(Lang) Models",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/onlyphantom/elang",
@@ -21,7 +21,7 @@ setuptools.setup(
     ],
     python_requires=">=3.6",
     install_requires=["gensim", "scikit-learn", "matplotlib"],
-    keywords="nlp bahasa indonesia indonesian natural language corpus word2vec gensim",
+    keywords="nlp bahasa indonesia indonesian natural language corpus word2vec gensim embedding nltk",
     test_suite="nose.collector",
     tests_require=["nose"],
 )
