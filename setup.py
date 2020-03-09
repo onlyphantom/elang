@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="elang",
-    version="0.0.8",
+    version="0.0.9",
     author="Samuel Chan, Tomy Tjandra",
     author_email="samuel@algorit.ma",
     description="Word Embedding(E) utilities: Indonesian Language(Lang) Models",
