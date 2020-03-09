@@ -3,9 +3,11 @@ import setuptools
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
+exec(open('elang/version.py').read())
+
 setuptools.setup(
     name="elang",
-    version="0.0.9",
+    version=__version__,
     author="Samuel Chan, Tomy Tjandra",
     author_email="samuel@algorit.ma",
     description="Word Embedding(E) utilities: Indonesian Language(Lang) Models",

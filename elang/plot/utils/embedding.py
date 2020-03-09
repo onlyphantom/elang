@@ -1,7 +1,3 @@
-import sys, os.path
-import gensim
-from gensim.models import Word2Vec
-
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm

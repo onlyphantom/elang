@@ -2,10 +2,10 @@
 [![PyPI version](https://img.shields.io/pypi/v/elang?color=green)](https://badge.fury.io/py/elang) [![PyPI license](https://img.shields.io/pypi/l/Elang?color=red)](https://pypi.python.org/pypi/elang/) [![Activity](https://img.shields.io/github/commit-activity/m/onlyphantom/elang)](https://github.com/onlyphantom/elang) [![maintained](https://img.shields.io/maintenance/yes/2020)](https://github.com/onlyphantom/elang/graphs/commit-activity) [![PyPI format](https://img.shields.io/pypi/format/elang)](https://pypi.org/project/elang/) [![pypi downloads](https://img.shields.io/pypi/dm/elang)](https://pypi.org/project/elang/) [![Documentation Status](https://readthedocs.org/projects/elang/badge/?version=latest)](https://elang.readthedocs.io/en/latest/?badge=latest)
 
 
-Elang is an acronym that combines the phrases **Embedding (E)** and **Language (Lang) Models**. Its goal is to help NLP (natural language processing) researchers, Word2Vec practitioners and data scientists be more productive in training language models. By the 0.1 release ([current version, 0.0.8](https://pypi.org/project/elang/https://pypi.org/project/elang/)), the package will include ("marked" checkbox indicates a completed feature):
+Elang is an acronym that combines the phrases **Embedding (E)** and **Language (Lang) Models**. Its goal is to help NLP (natural language processing) researchers, Word2Vec practitioners and data scientists be more productive in training language models. By the 0.1 release, the package will include ("marked" checkbox indicates a completed feature):
 - Visualizing Word2Vec models
     - [x] 2D plot with emphasis on words of interest
-    - [x] 2d plot with neighbors of words
+    - [x] 2D plot with neighbors of words
     - _More coming soon_
 - Text processing utility
     - [x] Remove stopwords (Indonesian)
