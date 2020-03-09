@@ -2,6 +2,7 @@ MANIFEST.in
 README.md
 setup.py
 elang/__init__.py
+elang/version.py
 elang.egg-info/PKG-INFO
 elang.egg-info/SOURCES.txt
 elang.egg-info/dependency_links.txt

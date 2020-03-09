@@ -1,7 +1,3 @@
-import sys, os.path
-import gensim
-from gensim.models import Word2Vec
-
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
@@ -109,6 +105,12 @@ def plotNeighbours(model, words, k=10, method="TSNE", draggable=False, *args, **
 
     embedding_clusters = []
     word_clusters = [] # (7,10)
+    
+    try:
+        words = [word for word in words if word in model.wv.vocab]
+    except TypeError as e:
+            raise TypeError("The 'words' parameter expect a python list")
+
     for word in words:
         neighbors = [] 
         embeddings = []
@@ -120,7 +122,7 @@ def plotNeighbours(model, words, k=10, method="TSNE", draggable=False, *args, **
     embedding_clusters = np.array(embedding_clusters)  
     cent_n, neigh_n, dim_n = embedding_clusters.shape # 7, 10, 50 (centroid, neighborhood, dimensions)
     embedding_clusters = embedding_clusters.reshape(cent_n * neigh_n, dim_n) # (70, 50)
-
+    
     if model.vector_size > 2:
         if method == "PCA":
             from sklearn.decomposition import PCA
@@ -134,6 +136,8 @@ def plotNeighbours(model, words, k=10, method="TSNE", draggable=False, *args, **
             raise AssertionError(
                 "Model must be one of PCA or TSNE for model with greater than 2 dimensions"
             )
+    else:
+        word_vec = embedding_clusters
 
     word_vec = word_vec.reshape(cent_n, neigh_n, -1) # (7,10,2)
     with plt.style.context("seaborn-pastel"):
