@@ -14,7 +14,8 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/onlyphantom/elang",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_namespace_packages(include=['elang', 'elang.plot.*', 'elang.word2vec.*']),
+    # packages=['elang.plot.utils', 'elang.word2vec.utils', 'elang.word2vec.builder'],
     include_package_data=True,
     classifiers=[
         "Programming Language :: Python :: 3",

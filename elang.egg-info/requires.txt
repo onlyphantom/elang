@@ -1,3 +1,5 @@
 gensim
 scikit-learn
 matplotlib
+tqdm
+beautifulsoup4

@@ -1,20 +1,24 @@
-# Word Embedding utilities: Indonesian Language Models
+# Word Embedding utilities for Language Models
 [![PyPI version](https://img.shields.io/pypi/v/elang?color=green)](https://badge.fury.io/py/elang) [![PyPI license](https://img.shields.io/pypi/l/Elang?color=red)](https://pypi.python.org/pypi/elang/) [![Activity](https://img.shields.io/github/commit-activity/m/onlyphantom/elang)](https://github.com/onlyphantom/elang) [![maintained](https://img.shields.io/maintenance/yes/2020)](https://github.com/onlyphantom/elang/graphs/commit-activity) [![PyPI format](https://img.shields.io/pypi/format/elang)](https://pypi.org/project/elang/) [![pypi downloads](https://img.shields.io/pypi/dm/elang)](https://pypi.org/project/elang/) [![Documentation Status](https://readthedocs.org/projects/elang/badge/?version=latest)](https://elang.readthedocs.io/en/latest/?badge=latest)
 
 
-Elang is an acronym that combines the phrases **Embedding (E)** and **Language (Lang) Models**. Its goal is to help NLP (natural language processing) researchers, Word2Vec practitioners and data scientists be more productive in training language models. By the 0.1 release, the package will include ("marked" checkbox indicates a completed feature):
-- Visualizing Word2Vec models
-    - [x] 2D plot with emphasis on words of interest
-    - [x] 2D plot with neighbors of words
-    - _More coming soon_
-- Text processing utility
-    - [x] Remove stopwords (Indonesian)
-    - [x] Remove region entity (Indonesian)
-    - [x] Remove calendar words (Indonesian)
-    - [x] Remove vulgarity (Indonesian)
-- Corpus-building utility
-    - [ ] Build Indonesian corpus using wikipedia
-    - [ ] Pre-trained models for quick experimentation
+Elang is an acronym that combines the phrases **Embedding (E)** and **Language (Lang) Models**. Its goal is to help NLP (natural language processing) researchers, Word2Vec practitioners, educators and data scientists be more productive in training language models and explaining key concepts in word embeddings. 
+
+Key features as of the 0.1 release can be grouped as follow:
+
+- **Corpus-building utility**
+    - [x] `build_from_wikipedia_random`: Build English / Indonesian corpus using random articles from Wikipedia
+    - [x] `build_from_wikipedia_branch`: Build English / Indonesian corpus by building a "topic branch" off Wikipedia
+
+- **Text processing utility**
+    - [x] `remove_stopwords_id`: Remove stopwords (Indonesian)
+    - [x] `remove_region_id`: Remove region entity (Indonesian)
+    - [x] `remove_calendar_id`: Remove calendar words (Indonesian)
+    - [x] `remove_vulgarity_id`: Remove vulgarity (Indonesian)
+
+- **Embedding Visualization Utility** (see illustration below)
+    - [x] `plot2d`: 2D plot with emphasis on words of interest
+    - [x] `plotNeighbours`: 2D plot with neighbors of words
 
 
 <img align="left" width="35%" src="https://github.com/onlyphantom/elangdev/blob/master/assets/elang_light.png?raw=true" style="margin-right:10%">
@@ -86,3 +90,28 @@ plot2d(
 Output:
 
 <img width="60%" src="https://github.com/onlyphantom/elangdev/raw/master/assets/tsne.png">
+
+### Building a Word2Vec model from Wikipedia
+
+```py
+from elang.word2vec.builder import build_from_wikipedia
+# a convenient wrapper to build_from_wikipedia_random or build_from_wikipedia_branch
+model1 = build_from_wikipedia(n=3, lang="id")
+model2 = build_from_wikipedia(slug="Koronavirus", lang="id", levels=2)
+print(model1)
+# returns: Word2Vec(vocab=190, size=100, alpha=0.025)
+```
+
+The code above constructs two Word2Vec models, `model1` and `model2`. The function that constructs these models does so by building a corpus from 3 (`n`) random articles on id.wikipedia.org (`id`). The corpus can optionally be saved by passing the `save=True` argument to the function call. 
+
+In `model2`, the function starts off by looking at the article: `https://id.wikipedia.org/wiki/Koronavirus` (determined by `id` and `slug`), and then find all related articles (level 1), and subsequently all related articles to those related articles (level 2). A corpus is built using all articles it find along this search branch (`levels`).
+
+#### Building a Corpus from Wikipedia (without Word2Vec model)
+
+If you would like to build a corpus, but not have the function _return_ a Word2Vec model, simply pass `model=False` and `save=True`. The `save` argument will create a `/corpus` directory and save the corpus in a `.txt` file. 
+
+```py
+build_from_wikipedia(n=10, lang="en", save=True)
+```
+
+The function call above will create a Corpus from the international (english) version of Wikipedia and save it to the following file in your working directory: `corpus/wikipedia_random_10_en.txt`
