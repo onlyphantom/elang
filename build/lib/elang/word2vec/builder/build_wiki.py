@@ -7,7 +7,7 @@ from gensim.models import Word2Vec
 from gensim.utils import simple_preprocess
 
 # realpath = os.path.dirname(os.path.realpath(__file__))
-folderpath = os.getcwd() + "/corpus"
+folderpath = os.path.join(os.getcwd(), 'corpus')
 
 ##### ##### ##### #####
 # BUILD FROM WIKIPEDIA
@@ -160,7 +160,7 @@ def build_from_wikipedia(
 # INTERNAL HELPER FUNCS
 ##### ##### ##### #####
 def _make_corpus_directory():
-    path = folderpath + "/txt"
+    path = os.path.join(folderpath, 'txt')
     if not os.path.exists(path):
         os.makedirs(path)
 
@@ -195,7 +195,8 @@ def _get_wikipedia_article(slug, url_base):
 
 def _save_content2txt(dictionary, filename):
     content_list = [d["content"] for d in dictionary if "content" in d.keys()]
-    with open(f"{folderpath}/txt/{filename}", "w", encoding="utf-8") as f:
+    fileloc = os.path.join(folderpath, 'txt', filename)
+    with open(fileloc, "w", encoding="utf-8") as f:
         f.write("\n".join(content_list))
     print("Article content successfully saved to", filename)
 
@@ -213,7 +214,8 @@ def _create_word2vec(corpus, lang, size=100, window=5, iteration=10, min_count=1
     if not os.path.exists(folderpath):
         os.makedirs(folderpath)
 
-    model.save(f"{folderpath}/{lang}_{size}d.model")
+    fileloc = os.path.join(folderpath, f'{lang}_{size}d.model')
+    model.save(fileloc)
 
     return model
 

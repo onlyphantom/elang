@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: elang
-Version: 0.1.0
+Version: 0.1.1
 Summary: Word Embedding(E) utilities for Language(Lang) Models
 Home-page: https://github.com/onlyphantom/elang
 Author: Samuel Chan, Tomy Tjandra
